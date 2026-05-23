@@ -2,7 +2,7 @@
 -- Inventory Management System - PostgreSQL Schema
 -- ============================================================
 
--- Enable UUID generation (Supabase has this by default)
+-- Enable UUID generation
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
 -- ============================================================
