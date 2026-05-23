@@ -1,0 +1,31 @@
+# --- Sensitive Configuration ---
+.env
+
+# --- Maven Build Output ---
+target/
+*.jar
+*.war
+*.ear
+*.class
+
+# --- IDEs and Text Editors ---
+.idea/
+*.iml
+*.iws
+*.ipr
+.settings/
+.project
+.classpath
+.factorypath
+.metadata/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# --- OS Generated Files ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini

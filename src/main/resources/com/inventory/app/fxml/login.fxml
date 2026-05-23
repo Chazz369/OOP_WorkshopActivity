@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.inventory.app.controller.LoginController"
+           styleClass="login-root"
+           prefWidth="1100" prefHeight="700"
+           stylesheets="@../css/styles.css">
+
+    <VBox alignment="CENTER" styleClass="login-container" maxWidth="420" maxHeight="560">
+        <padding>
+            <Insets top="40" right="40" bottom="40" left="40"/>
+        </padding>
+
+        <!-- App Title -->
+        <Label text="Inventory Management System" styleClass="login-title">
+            <VBox.margin>
+                <Insets top="10"/>
+            </VBox.margin>
+        </Label>
+
+        <!-- Subtitle -->
+        <Label text="Sign in to manage your inventory" styleClass="login-subtitle">
+            <VBox.margin>
+                <Insets bottom="30"/>
+            </VBox.margin>
+        </Label>
+
+        <!-- Username Field -->
+        <Label text="Username" styleClass="form-label">
+            <VBox.margin>
+                <Insets bottom="5"/>
+            </VBox.margin>
+        </Label>
+        <TextField fx:id="usernameField" promptText="Username" styleClass="form-field">
+            <VBox.margin>
+                <Insets bottom="15"/>
+            </VBox.margin>
+        </TextField>
+
+        <!-- Password Field -->
+        <Label text="Password" styleClass="form-label">
+            <VBox.margin>
+                <Insets bottom="5"/>
+            </VBox.margin>
+        </Label>
+        <PasswordField fx:id="passwordField" promptText="Password" styleClass="form-field">
+            <VBox.margin>
+                <Insets bottom="15"/>
+            </VBox.margin>
+        </PasswordField>
+
+        <!-- Remember Me -->
+        <CheckBox fx:id="rememberMeCheckbox" text="Remember Me" styleClass="remember-checkbox">
+            <VBox.margin>
+                <Insets bottom="20"/>
+            </VBox.margin>
+        </CheckBox>
+
+        <!-- Error Label -->
+        <Label fx:id="errorLabel" text="" styleClass="error-label" visible="false" managed="false">
+            <VBox.margin>
+                <Insets bottom="10"/>
+            </VBox.margin>
+        </Label>
+
+        <!-- Sign In Button -->
+        <Button fx:id="signInButton" text="Sign In" onAction="#handleSignIn"
+                styleClass="sign-in-button" maxWidth="Infinity">
+            <VBox.margin>
+                <Insets bottom="10"/>
+            </VBox.margin>
+        </Button>
+
+        <!-- Sign Up Link -->
+        <Hyperlink text="Don't have an account? Sign Up" onAction="#handleSignUp"
+                   styleClass="sign-up-link"/>
+
+        <!-- Loading Indicator -->
+        <ProgressIndicator fx:id="loadingIndicator" visible="false" managed="false"
+                           prefWidth="30" prefHeight="30"/>
+    </VBox>
+</StackPane>

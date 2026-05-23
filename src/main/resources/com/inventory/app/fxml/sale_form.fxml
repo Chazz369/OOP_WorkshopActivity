@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.inventory.app.controller.SaleFormController"
+      styleClass="modal-root"
+      prefWidth="450" prefHeight="380" spacing="0"
+      stylesheets="@../css/styles.css">
+
+    <padding>
+        <Insets top="30" right="35" bottom="30" left="35"/>
+    </padding>
+
+    <!-- Form Title -->
+    <Label text="Record Sale" styleClass="modal-title">
+        <VBox.margin>
+            <Insets bottom="25"/>
+        </VBox.margin>
+    </Label>
+
+    <!-- Form Fields -->
+    <VBox spacing="4">
+
+        <!-- Select Item -->
+        <Label text="Select Item" styleClass="field-label"/>
+        <ComboBox fx:id="itemCombo" promptText="Choose an item..." styleClass="form-field"
+                  maxWidth="Infinity"/>
+        <Region prefHeight="12"/>
+
+        <!-- Current Stock Display -->
+        <HBox spacing="8" alignment="CENTER_LEFT" styleClass="stock-info-box">
+            <padding>
+                <Insets top="8" right="12" bottom="8" left="12"/>
+            </padding>
+            <Label text="Current Stock:" styleClass="field-label"/>
+            <Label fx:id="currentStockLabel" text="—" styleClass="stock-value"/>
+        </HBox>
+        <Region prefHeight="12"/>
+
+        <!-- Quantity to Sell -->
+        <Label text="Quantity to Sell" styleClass="field-label"/>
+        <Spinner fx:id="quantitySpinner" styleClass="form-field" maxWidth="Infinity"/>
+        <Region prefHeight="8"/>
+
+        <!-- Error Label -->
+        <Label fx:id="errorLabel" text="" styleClass="error-label" visible="false" managed="false"/>
+    </VBox>
+
+    <!-- Spacer -->
+    <Region VBox.vgrow="ALWAYS"/>
+
+    <!-- Button Row -->
+    <HBox spacing="12" alignment="CENTER_RIGHT">
+        <VBox.margin>
+            <Insets top="25"/>
+        </VBox.margin>
+        <Button text="Cancel" onAction="#handleCancel" styleClass="btn-default" prefWidth="100"/>
+        <Button text="Confirm Sale" onAction="#handleConfirm" styleClass="btn-success" prefWidth="130"/>
+    </HBox>
+</VBox>

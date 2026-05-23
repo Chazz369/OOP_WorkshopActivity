@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.inventory.app.controller.InventoryController"
+            prefWidth="1100" prefHeight="700"
+            stylesheets="@../css/styles.css">
+
+    <!-- TOP HEADER BAR -->
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="15">
+            <padding>
+                <Insets top="15" right="25" bottom="15" left="25"/>
+            </padding>
+
+            <!-- Page Title -->
+            <Label fx:id="pageTitle" text="Inventory Management" styleClass="page-title"/>
+
+            <!-- Spacer -->
+            <HBox HBox.hgrow="ALWAYS"/>
+
+
+
+            <!-- User Label -->
+            <Label fx:id="usernameLabel" text="User" styleClass="username-label"/>
+
+            <!-- Logout Button -->
+            <Button text="Logout" onAction="#handleLogout" styleClass="btn-logout"/>
+        </HBox>
+    </top>
+
+    <!-- CENTER CONTENT -->
+    <center>
+        <VBox styleClass="main-content" spacing="15">
+            <padding>
+                <Insets top="20" right="25" bottom="20" left="25"/>
+            </padding>
+
+            <!-- Toolbar -->
+            <HBox styleClass="toolbar" alignment="CENTER_LEFT" spacing="10">
+                <padding>
+                    <Insets top="10" right="15" bottom="10" left="15"/>
+                </padding>
+
+                <!-- Search Field -->
+                <TextField fx:id="searchField" promptText="Search by name or category..."
+                           styleClass="search-field" prefWidth="300"/>
+
+                <!-- Spacer -->
+                <HBox HBox.hgrow="ALWAYS"/>
+
+                <Button fx:id="addItemBtn" text="+ Add Item" onAction="#handleAddItem"
+                        styleClass="btn-primary"/>
+                <Button text="💰 Record Sale" onAction="#handleRecordSale"
+                        styleClass="btn-success"/>
+            </HBox>
+
+            <!-- Inventory Table -->
+            <TableView fx:id="inventoryTable" VBox.vgrow="ALWAYS" styleClass="inventory-table">
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+                <columns>
+                    <TableColumn fx:id="skuCol" text="Product ID" prefWidth="120"/>
+                    <TableColumn fx:id="nameCol" text="Name" prefWidth="200"/>
+                    <TableColumn fx:id="categoryCol" text="Category" prefWidth="140"/>
+                    <TableColumn fx:id="quantityCol" text="Quantity" prefWidth="100"/>
+                    <TableColumn fx:id="priceCol" text="Unit Price" prefWidth="120"/>
+                    <TableColumn fx:id="thresholdCol" text="Threshold" prefWidth="100"/>
+                    <TableColumn fx:id="statusCol" text="Status" prefWidth="120"/>
+                    <TableColumn fx:id="actionsCol" text="Actions" prefWidth="160"/>
+                </columns>
+                <placeholder>
+                    <Label text="No items in inventory" styleClass="table-placeholder"/>
+                </placeholder>
+            </TableView>
+
+            <!-- Item Count Summary -->
+            <HBox alignment="CENTER_LEFT" styleClass="status-bar">
+                <padding>
+                    <Insets top="5" right="10" bottom="5" left="10"/>
+                </padding>
+                <Label fx:id="itemCountLabel" text="0 items" styleClass="item-count-label"/>
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>

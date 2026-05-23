@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.inventory.app.controller.ItemFormController"
+      styleClass="modal-root"
+      prefWidth="500" prefHeight="580" spacing="0"
+      stylesheets="@../css/styles.css">
+
+    <padding>
+        <Insets top="30" right="35" bottom="30" left="35"/>
+    </padding>
+
+    <!-- Form Title -->
+    <Label fx:id="formTitle" text="Add New Item" styleClass="modal-title">
+        <VBox.margin>
+            <Insets bottom="25"/>
+        </VBox.margin>
+    </Label>
+
+    <!-- Form Fields -->
+    <VBox spacing="4">
+
+        <!-- Product ID -->
+        <Label text="Product ID" styleClass="field-label"/>
+        <TextField fx:id="skuField" promptText="e.g. PROD-001" styleClass="form-field"/>
+        <Label fx:id="skuError" text="" styleClass="field-error" visible="false" managed="false"/>
+        <Region prefHeight="8"/>
+
+        <!-- Name -->
+        <Label text="Item Name" styleClass="field-label"/>
+        <TextField fx:id="nameField" promptText="Enter item name" styleClass="form-field"/>
+        <Label fx:id="nameError" text="" styleClass="field-error" visible="false" managed="false"/>
+        <Region prefHeight="8"/>
+
+        <!-- Category -->
+        <Label text="Category" styleClass="field-label"/>
+        <ComboBox fx:id="categoryCombo" promptText="Select category" styleClass="form-field"
+                  maxWidth="Infinity"/>
+        <Label fx:id="categoryError" text="" styleClass="field-error" visible="false" managed="false"/>
+        <Region prefHeight="8"/>
+
+        <!-- Unit Price -->
+        <Label text="Unit Price" styleClass="field-label"/>
+        <TextField fx:id="priceField" promptText="0.00" styleClass="form-field"/>
+        <Label fx:id="priceError" text="" styleClass="field-error" visible="false" managed="false"/>
+        <Region prefHeight="8"/>
+
+        <!-- Quantity -->
+        <Label text="Quantity" styleClass="field-label"/>
+        <Spinner fx:id="quantitySpinner" styleClass="form-field" maxWidth="Infinity"/>
+        <Label fx:id="quantityError" text="" styleClass="field-error" visible="false" managed="false"/>
+        <Region prefHeight="8"/>
+
+        <!-- Threshold -->
+        <Label text="Low Stock Threshold" styleClass="field-label"/>
+        <Spinner fx:id="thresholdSpinner" styleClass="form-field" maxWidth="Infinity"/>
+        <Label fx:id="thresholdError" text="" styleClass="field-error" visible="false" managed="false"/>
+    </VBox>
+
+    <!-- Spacer -->
+    <Region VBox.vgrow="ALWAYS"/>
+
+    <!-- Button Row -->
+    <HBox spacing="12" alignment="CENTER_RIGHT">
+        <VBox.margin>
+            <Insets top="25"/>
+        </VBox.margin>
+        <Button text="Cancel" onAction="#handleCancel" styleClass="btn-default" prefWidth="100"/>
+        <Button text="Save" onAction="#handleSave" styleClass="btn-primary" prefWidth="100"/>
+    </HBox>
+</VBox>
